@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MikeLing</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined|Material+Symbols+Rounded|Material+Symbols+Sharp" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@^7.0.0/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/ionicons@^4.0.0/dist/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/eva-icons@^1.0.0/style/eva-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://themify.me/wp-content/themes/themify-v32/themify-icons/themify-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@^1.0.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@2.15.2/dist/quasar.rtl.prod.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@^4.0.0/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.cdnfonts.com/css/amelliya" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/agdasima" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/spline-sans" rel="stylesheet">
+
+                
+    <!-- ----------------------------------------------- CSS -------------------------------------------------- -->     
+    <style>
+
+      html, body{
+        
+        height: 100%;
+        margin: 0;
+        /* -webkit-appearance:none; */
+        
+
+      }
+      ::-webkit-scrollbar {
+    display: none;
+}
+      .text-prima {
+        color: rgb(137 74 103);
+      }
+      .bg-prima {
+        background: rgb(137 74 103);
+      }
+      .text-seconda {
+        color: rgb(254 217 230);
+      }
+      .bg-seconda {
+        background: rgb(254 217 230);
+      }
+      .text-tertia {
+        color: rgb(255 240 243);
+      }
+      .bg-tertia {
+        background: rgb(255 240 243);
+      }
+      .text-err {
+        color: rgb(186 26 26);
+      }
+      .bg-err {
+        background:rgb(186 26 26);
+      }
+      .text-neutra {
+        color: rgb(131 115 120);
+      }
+      .bg-neutra {
+        background: rgb(131 115 120);
+      }
+      .text-tablea{
+        color: #504348;
+      }
+      .bg-tablea{
+        background: #504348;
+      }
+      
+.caret {
+  display: inline-block;
+  width: 0.1em; /* Adjust the width of the caret */
+  height: 1em;
+  background-color: black;
+  animation: blink 0.7s infinite alternate; /* Blinking animation */
+}
+
+@keyframes blink {
+  from {
+    opacity: 1; /* Visible */
+  }
+
+  to {
+    opacity: 0; /* Invisible */
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@2.15.2/dist/quasar.umd.prod.js"></script>
+    <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
+
+
+<!-- ---------------------------------------Bắt đầu----------------------------------------------------- -->
+    <div id="q-app" style="height: 100%">
+    <!-- Lưu ý đoạn này dùng template id chứ không dùng component name -->
+    <q-layout view="lHh lpr lFf" container style="background-color: #ffffff;" class="shadow-2 rounded-borders">
+      
+        
+     
+     <q-page-container> <!-- setup responsive size đi theo cái này-->
+
+      <router-view></router-view>
+    </q-page-container>
+     <!-- <q-footer elevated reveal ><menu-bar></menu-bar></q-footer>  -->
+    </q-layout>
+     
+      
+      </div>
+
+      <!-------------------------------------------- Vue component usage ------------------------------------->
+
+  <!-- -----------------------------------------Menu bar----------------------------------------------- -->
+  <template id="menu-bar">
+
+        
+    <q-tabs
+  
+    style="background-color: #FFF0F3; "
+    outside-arrows
+    mobile-arrows
+    dense
+    class="text-grey-7"
+    active-bg-color="seconda"
+    active-color="prima"
+    indicator-color="prima"
+    align="justify"
+    narrow-indicator
+     >
+
+      
+     <q-route-tab name="homePage" label="Trang chủ" icon="home" to="/">
+     </q-route-tab>
+ 
+
+    <q-route-tab name="planningForm" label="Planning" icon="assignment" to="/">
+    </q-route-tab>
+
+
+
+    <q-route-tab name="checkList" label="Check list" icon="checklist" to="/">
+  </q-route-tab>
+
+
+
+  <q-route-tab name="dashboard" label="Report" icon="space_dashboard" to="/">
+</q-route-tab>
+
+
+  </q-tabs>
+
+  
+</template>
+
+
+  <!-- -----------------------------------------Home Page----------------------------------------------- -->
+<template id="home-page">
+  <q-btn style="position: fixed; top: 0; left: 0; 
+  cursor: pointer;" 
+  onmouseover="this.style.color='#FFF'" 
+  onmouseout="this.style.color='#894a67'" 
+   flat round dense icon="home" class="q-mr-sm" color="prima" to="/">
+  </q-btn>
+  
+    <div class="row"
+    style="min-height: 100vh; background-image: url('bg1.png');
+    background-repeat: no-repeat;
+   
+    background-blend-mode: darken;
+    background-position: center;
+    background-size: cover;
+    ">
+    
+    <div class="col-6 content-center" style="height: 100vh; padding-left: 10vh;">
+      <div style="color: white;
+      font-weight: bold; font-size: 5vh ;
+      font-family: 'Spline Sans', sans-serif;">Minh Lai | Mikey</div>
+      <div style="margin: 1vh 30vh 0 0;
+      color: white;
+      font-size: 3vh;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">{{ typedText }}<span class="caret"></span></div>
+      <div style="margin: 7vh 30vh 0 0; text-align: justify;
+      color: white; font-size: 2vh;font-family: 'Spline Sans', sans-serif;">
+        Data analysis is a craft, and thus, data analysts are craftsmen. It's the embodiment of imagination and ingenuity; raw insights sculpted with the unique touch of each analyst's expertise.
+      </div>
+      <div style="margin-top: 5vh;" class="q-gutter-x-md">
+        <q-btn class="q-px-md" color="prima" name="portfolio" label="My Portfolio" to="/portfolio"></q-btn>
+        <q-btn class="q-px-md" name="contact" color="white" text-color="black" label="Contact me" to="/contact"></q-btn>
+      </div>
+    </div>
+    <div class="col-6 bg-deep-orange-2"
+    style="min-height: 80vh;"
+    >
+
+    </div>
+    </div>
+  
+</template>
+
+<template id="contact">
+  <q-btn style="position: fixed; top: 0; left: 0; 
+  cursor: pointer;" 
+  onmouseover="this.style.color='#FFF'" 
+  onmouseout="this.style.color='#894a67'" 
+   flat round dense icon="home" class="q-mr-sm" color="prima" to="/">
+  </q-btn>
+  
+    <div class="row"
+    style="min-height: 100vh; background-image: url('bg1.png');
+    background-repeat: no-repeat;
+   
+    background-blend-mode: darken;
+    background-position: center;
+    background-size: cover;
+    ">
+    
+    <div class="col-6 content-center" style="min-height: 80vh; padding-left: 10vh;">
+      <div style="color: white;
+      font-weight: bold; font-size: 5vh ;
+      font-family: 'Spline Sans', sans-serif;">Minh Lai | Mikey</div>
+      <div style="margin: 1vh 30vh 0 0;
+      color: white;
+      font-size: 3vh;
+      font-family: 'Spline Sans', sans-serif;">{{ typedText }}<span class="caret"></span></div>
+      <div style="margin: 7vh 30vh 0 0; text-align: justify;
+      color: white ;font-family: 'Spline Sans', sans-serif;">
+      Just words together have the remarkable ability to kickstart a journey towards happiness, catching us off guard in the most delightful of ways. It's fascinating how something as simple as a few lines of text can lift our spirits and bring a smile to our faces.
+      </div>
+      <div style="margin-top: 5vh;" class="q-gutter-x-md">
+        <q-btn class="q-px-md" color="prima" name="portfolio" label="My Portfolio" to="/portfolio"></q-btn>
+        <q-btn class="q-px-md" name="home" color="white" text-color="black" label="Homepage" to="/"></q-btn>
+      </div>
+    </div>
+    <div class="col-6"
+    style="min-height: 80vh;"
+    >
+    <div style="display: flex; justify-content: center; height: 100vh;">
+      <q-card flat bordered class="bg-deep-orange-1" style="height: 86vh; width:40vw; margin-top: 7vh;">
+        <q-card-section>
+          <div class="row">
+            <div class="col-8" style="height: 5vh;
+            font-family: 'Spline Sans', sans-serif;">
+              <div class="text-h4">Get in touch</div>
+            </div>
+            <div class="col-4" style="font-family: 'Spline Sans', sans-serif;"></div>
+          </div>
+        </q-card-section>
+        <q-separator inset></q-separator>
+        <q-card-section style="margin-top: 5vh">
+                  <q-form
+                  @submit="onSubmit"
+                  @reset="onReset"
+                  >
+                  <div class="row justify-between q-gutter-x-xl">
+                    <q-input style="font-family: 'Spline Sans', sans-serif;"
+                      class="col-5"
+                      v-model="name"
+                      label="Your name *"
+                      square outlined dense
+                      lazy-rules
+                      :rules="[ val => val && val.length > 0 || 'I would like to know your name, just for addressing']"
+                    ></q-input>
+                    <q-input class="col-5" style="font-family: 'Spline Sans', sans-serif;"
+                    v-model="email"
+                    label="Your Email *"
+                    type="email"
+                    square outlined dense
+                    :rules="[ val => val && val.includes('@')== true || 'Maybe we will contact again?']"
+                    ></q-input>
+                  </div>
+                    <div class="row">
+                      <q-input style="font-family: 'Spline Sans', sans-serif;"
+                      class="col q-mt-md"
+                      v-model="text"
+                      label="Message *"
+                      hint="Your thought about me"
+                      square outlined
+                      type="textarea"
+                      :rules="[ val => val && val.length > 0 || 'What do you want to tell me?']"
+                    ></q-input>
+                    </div>
+                  
+          
+                  <div class="row" style="padding-top: 5vh;">
+                    <q-btn label="Send" square flat style="background: black; color: white; margin-right: 5vh;" type="submit"></q-btn>
+                    <q-btn label="Reset" square flat type="reset" color="black" flat class="q-ml-sm" ></q-btn>
+                  </div>
+                        </q-form>
+                </q-card-section>
+              
+            
+         
+        </q-card-section>
+      </q-card>
+    </div>
+    </div>
+    </div>
+
+</template>
+
+<template id="portfolio">
+  <q-btn style="position: fixed; top: 0; left: 0; 
+  cursor: pointer;" 
+  onmouseover="this.style.color='#FFF'" 
+  onmouseout="this.style.color='#894a67'" 
+   flat round dense icon="home" class="q-mr-sm" color="prima" to="/">
+  </q-btn>
+  
+    <div class="row"
+    style="min-height: 100vh; background-image: url('bg1.png');
+    background-repeat: no-repeat;
+   
+    background-blend-mode: darken;
+    background-position: center;
+    background-size: cover;
+    ">
+    
+    <div class="col-6 content-center" style="min-height: 80vh; padding-left: 10vh;">
+      <div style="color: white;
+      font-weight: bold; font-size: 5vh ;
+      font-family: 'Spline Sans', sans-serif;">My Portfolio</div>
+      <div style="margin: 1vh 30vh 0 0;
+      color: white;
+      font-size: 3vh;
+      font-family: 'Spline Sans', sans-serif;">{{ typedText }}<span class="caret"></span></div>
+      <div style="margin: 7vh 30vh 0 0; text-align: justify;
+      color: white ;font-family: 'Spline Sans', sans-serif;">
+      From my humble beginnings with small projects during my learning journey to the impactful contributions I've made to business growth, I take pride in my progress thus far.  
+      </div>
+      <div style="margin-top: 5vh;" class="q-gutter-x-md">
+        <q-btn class="q-px-md" color="prima" name="home" label="Homepage" to="/"></q-btn>
+        <q-btn class="q-px-md" name="contact" color="white" text-color="black" label="Contact me" to="/contact"></q-btn>
+      </div>
+    </div>
+    <div class="col-6"
+    style="min-height: 80vh;"
+    >
+    <div style="display: flex; justify-content: center; height: 100vh;">
+      <q-card flat bordered class="bg-deep-orange-1" style="height: 86vh; width:40vw; margin-top: 7vh;">
+        <q-card-section>
+          <div class="row">
+            <div class="col-8" style="height: 5vh;
+            font-family: 'Spline Sans', sans-serif;">
+              <div class="text-h4" style="font-family: 'Spline Sans', sans-serif;"></div>
+            </div>
+            <div class="col-4" style="font-family: 'Spline Sans', sans-serif;"></div>
+          </div>
+        </q-card-section>
+        <q-separator inset></q-separator>
+        <q-card-section>
+                  
+                  
+          
+                  <div class="row justify-between q-gutter-x-xl">
+                    <q-card class="col-5">
+                      <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
+                        <div class="absolute-bottom">
+                          <div class="text-h6">Shopping List</div>
+                          <div class="text-subtitle2">Managing shopping items and money expense</div>
+                        </div>
+                      </q-img>
+                
+                      <q-card-actions>
+                        <q-btn flat href="https://docs.google.com/spreadsheets/d/1ijjoINCOqfHipJdYq202W9yeg9LCodi2MPOlcsomOzc/edit#gid=629175881">Demo</q-btn>
+                      </q-card-actions>
+                    </q-card>
+
+                    <q-card class="col-5">
+                      <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
+                        <div class="absolute-bottom">
+                          <div class="text-h6">QR Generator</div>
+                          <div class="text-subtitle2">A website for quick QR generate and download</div>
+                        </div>
+                      </q-img>
+                
+                      <q-card-actions>
+                        <q-btn flat href="https://script.google.com/macros/s/AKfycbzvnkyM6LBCNBbKvJhuHPoOBsf5e-9uciTJfWqIqiIp5VxIs5NH4BR4xDhHZZolB_hM/exec?url=https://www.linkedin.com/in/milatr98/">Click to web</q-btn>
+                      </q-card-actions>
+                    </q-card>
+
+                    <!-- <iframe src="https://script.google.com/macros/s/AKfycbxyjgj0WQVnWUCq5BAZc8UOb0ZQXnriiKWpiQEH9d_teQs6UxIxQ2yvreDmleVyfy8aTQ/exec"
+                    style="height: 60vh; width: 50vw"></iframe>
+                    <q-btn bordered label="Back to projects" square flat type="reset" color="black" class="q-mt-xl" ></q-btn> -->
+                    
+                  </div>
+                  <div class="row justify-between q-pt-md q-gutter-x-xl">
+                    <q-card class="col-5">
+                      <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
+                        <div class="absolute-bottom">
+                          <div class="text-h6">Excel dashboard project</div>
+                          <div class="text-subtitle2">A project about querying, analysing and visualizing data using Excel</div>
+                        </div>
+                      </q-img>
+                
+                      <q-card-actions>
+                        <q-btn flat label="Download file">       
+                          <q-tooltip>
+                          Updating...
+                        </q-tooltip></q-btn>
+                      </q-card-actions>
+                    </q-card>
+                    <q-card class="col-5">
+                      <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
+                        <div class="absolute-bottom">
+                          <div class="text-h6">WiDS Datathon</div>
+                          <div class="text-subtitle2">An annually ML competition on Kaggle</div>
+                        </div>
+                      </q-img>
+                
+                      <q-card-actions>
+                        <q-btn flat href="https://www.kaggle.com/mikeling98/competitions">To leaderboard</q-btn>
+                      </q-card-actions>
+                    </q-card>
+                   
+                  </div>
+                
+              
+            
+         
+        </q-card-section>
+      </q-card>
+    </div>
+    </div>
+    </div>
+</template>
+
+
+
+
+
+
+<!-------------------------------------------------- Script -------------------------------------------------->
+
+    <script>
+      const { ref, onMounted, onUpdated, onUnmounted, computed, reactive } = Vue;
+      const { useQuasar } = Quasar;
+      const { createRouter, createMemoryHistory, useRouter, useRoute } = VueRouter;
+
+      const screenState = Vue.reactive({
+          width: window.innerWidth,
+          height: window.innerHeight
+        });
+
+        // Listen for window resize events to update the shared state
+        window.addEventListener('resize', () => {
+          screenState.width = window.innerWidth;
+          screenState.height = window.innerHeight;
+        });
+
+
+//-----------------------------------------------------Vue App--------------------------------------------------
+const app = Vue.createApp({
+  // Provide the shared state to all components
+  provide() {
+    return {
+      screenState
+    };
+  }
+});
+
+ //-------------------------------ABOUT---------------------------------------//
+ const contact = {
+  template:'#contact',inject: ['screenState'],
+  setup(){
+    const $q = useQuasar()
+    const name = ref(null)
+    const email = ref(null)
+    const text = ref(null)
+
+    const text1 = "Data Analyst | IT Auditor | Consultant";
+const text2 = "Office whizz | I teach Excel to help my colleague go home early"
+const typedText = ref('');
+let index = 0;
+const typingSpeed = ref(); // Adjust typing speed as needed
+let typingText1 = true; // Flag to track which text is being typed
+onMounted(() => {
+  // Start typing effect
+  typeText(text1);
+});
+function typeText(text) {
+  if (index < text.length) {
+    typingSpeed.value =100
+    typedText.value += text.charAt(index);
+    index++;
+    typingSpeed.value -=index
+    
+    setTimeout(()=>typeText(text), typingSpeed.value);
+  }
+  else{
+    setTimeout(() => deleteText(text),1000)
+  }
+}
+
+function deleteText(text){
+  if(index >= 0){
+    typingSpeed.value =100
+    typedText.value =text.substring(0,index)
+    index--
+    typingSpeed.value -=index
+    setTimeout(() => deleteText(text),typingSpeed.value)
+  }
+  else{
+    if(typingText1){
+      setTimeout(()=>typeText(text2),1000)
+    }
+    else{
+      setTimeout(()=>typeText(text1),1000)
+    }
+    typingText1 = !typingText1;
+  }
+}
+
+
+    async function onSubmit(){
+      if (name.value == null || email.value == null) {
+          $q.notify({
+            color: 'red-5',
+            textColor: 'white',
+            icon: 'warning',
+            message: 'Hãy nhập đầy đủ thông tin nha'
+          })
+        }
+        else{
+          const data = {
+      date: new Date(),
+      name: name,
+      email: email,
+      text: text
+    }
+   
+      const response = await fetch("https://script.google.com/macros/s/AKfycby7la4uBWq9hUYOofY2K9Vhb8OAAdjzsatr_DGfELtx8CCIKxRJZ1nzJL_AKr288jA/exec",
+        {
+          
+          method:"POST",
+          headers: {
+            "Content-Type": 'text/plain;charset=utf-8'
+          },
+            body: JSON.stringify(data)
+          
+        }
+      )
+      console.log(await response.text())
+      $q.notify({
+            color: 'green-4',
+            textColor: 'white',
+            icon: 'cloud_done',
+            message: 'Submitted'
+          })
+    }
+  }
+  function onReset () {
+        name.value = null
+        email.value = null
+        text.value = null
+      }
+
+      return {
+        typedText,
+      typeText,
+      deleteText,
+      
+        name,
+        email,
+        text,
+        onSubmit,
+        onReset
+      }
+  }
+
+
+}
+
+app.component('contact',contact)
+
+ //-------------------------------PORTFOLIO---------------------------------------//
+const portfolio = {
+  template:'#portfolio',inject: ['screenState'],
+  setup(){
+    const text1 = "Excel VBA Automation | BI Dashboard | Data Analysis";
+const text2 = "Javascript | Python | AI/ML"
+const typedText = ref('');
+let index = 0;
+const typingSpeed = ref(); // Adjust typing speed as needed
+let typingText1 = true; // Flag to track which text is being typed
+onMounted(() => {
+  // Start typing effect
+  typeText(text1);
+});
+function typeText(text) {
+  if (index < text.length) {
+    typingSpeed.value =100
+    typedText.value += text.charAt(index);
+    index++;
+    typingSpeed.value -=index
+    
+    setTimeout(()=>typeText(text), typingSpeed.value);
+  }
+  else{
+    setTimeout(() => deleteText(text),1000)
+  }
+}
+
+function deleteText(text){
+  if(index >= 0){
+    typingSpeed.value =100
+    typedText.value =text.substring(0,index)
+    index--
+    typingSpeed.value -=index
+    setTimeout(() => deleteText(text),typingSpeed.value)
+  }
+  else{
+    if(typingText1){
+      setTimeout(()=>typeText(text2),1000)
+    }
+    else{
+      setTimeout(()=>typeText(text1),1000)
+    }
+    typingText1 = !typingText1;
+  }
+}
+
+return{
+      typedText,
+      typeText,
+      deleteText
+    }
+  }
+}
+
+app.component('portfolio',portfolio)
+
+  
+  //-------------------------------HOMEPAGE---------------------------------------//
+  const homePage = {template:'#home-page',inject: ['screenState'],
+  setup(){
+const text1 = "Data Analyst | IT Auditor | Consultant";
+const text2 = "Office whizz | I teach Excel to help my colleague go home early"
+const typedText = ref('');
+let index = 0;
+const typingSpeed = ref(); // Adjust typing speed as needed
+let typingText1 = true; // Flag to track which text is being typed
+onMounted(() => {
+  // Start typing effect
+  typeText(text1);
+});
+function typeText(text) {
+  if (index < text.length) {
+    typingSpeed.value =100
+    typedText.value += text.charAt(index);
+    index++;
+    typingSpeed.value -=index
+    
+    setTimeout(()=>typeText(text), typingSpeed.value);
+  }
+  else{
+    setTimeout(() => deleteText(text),1000)
+  }
+}
+
+function deleteText(text){
+  if(index >= 0){
+    typingSpeed.value =100
+    typedText.value =text.substring(0,index)
+    index--
+    typingSpeed.value -=index
+    setTimeout(() => deleteText(text),typingSpeed.value)
+  }
+  else{
+    if(typingText1){
+      setTimeout(()=>typeText(text2),1000)
+    }
+    else{
+      setTimeout(()=>typeText(text1),1000)
+    }
+    typingText1 = !typingText1;
+  }
+}
+
+
+    return{
+      typedText,
+      typeText,
+      deleteText
+    }
+  }
+}
+
+  app.component('homePage',homePage)
+
+
+
+  //--------------------------------ROUTING---------------------------------------//
+    
+  //------1. Menu bar--------------------------------
+    const menuBar = {template:'#menu-bar',inject: ['screenState']}
+    app.component('menuBar',menuBar)
+
+
+
+  //------2. Routing---------------------------------
+
+      const routes = [
+        {path:"",component: homePage},
+        {path:"/portfolio",component: portfolio},
+        {path:"/contact",component: contact}
+
+      ]
+
+      const router = VueRouter.createRouter({
+        history: VueRouter.createWebHashHistory(),
+        routes
+      })
+
+       //--------------------------------END---------------------------------------//
+      app.use(Quasar);
+      app.use(router);
+      app.mount('#q-app');
+    </script>
+  </body>
+</html>
