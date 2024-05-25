@@ -613,7 +613,7 @@ function deleteText(text){
     }
 
           //https://docs.google.com/spreadsheets/d/18KMqY80dOU-9VoU2lduyYzI6vkr7NqewAHNIYfvuoLM/edit#gid=0
-      const response = await fetch("https://script.google.com/macros/s/AKfycbwXBZQgjzaJ7UGKh_wLIcnBWRxNd6NfoihvWHSrnRyj-JNyewCoPPBYMIRNgfEYE2Xk/exec",
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzd88iidZuAQ_m-M7fhdO4O-jYzHYvJAJhYX_E_JIpDyPIuL_EH7vt3kXizhopBd4m3/exec",
         {
           
           method:"POST",
@@ -624,6 +624,7 @@ function deleteText(text){
           
         }
       )
+      console.log(await JSON.stringify(data))
       console.log(await response.text())
       $q.notify({
             color: 'green-4',
